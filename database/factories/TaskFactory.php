@@ -22,8 +22,7 @@ class TaskFactory extends Factory
             'user_id'=>User::factory(),
             'title'=>$this->faker->title(),
             'description'=>$this->faker->sentence(),
-            'status'=>$this->faker->randomElement(['TODO', 'DOING', 'DONE',]),
-
+            'status'=>$this->faker->randomElement([Task::TODO, Task::DOING, Task::DONE]),
         ];
     }
 }

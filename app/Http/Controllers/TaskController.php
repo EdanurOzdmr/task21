@@ -37,12 +37,8 @@ class TaskController extends Controller
         $validator = Validator::make($input, [
             'title' => 'required'
         ]);
-        if ($validator->fails()) {return response()->json([
-                'errors' => [
-                'title' => [
-                    'Title is required.'
-                ]
-            ]], 422);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()], 422);
         }
         $task = Task::create($input);
         $response = [
