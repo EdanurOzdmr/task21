@@ -21,7 +21,8 @@ class CreateTasksTable extends Migration
                 ->onDelete('cascade');
             $table->string('title');
             $table->string('description')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->enum('status', ['TODO', 'DOING', 'DONE'])
+                ->default('TODO');
             $table->timestamps();
         });
     }

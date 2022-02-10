@@ -38,7 +38,7 @@ class TaskController extends Controller
             'title' => 'required'
         ]);
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 422);
+            return response()->json(['errors' => $validator->errors()], 422);
         }
         $task = Task::create($input);
         $response = [
@@ -95,4 +95,5 @@ class TaskController extends Controller
         ];
         return response()->json($response, 200);
     }
+
 }
